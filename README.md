@@ -1,4 +1,3 @@
-# IoT-Research
 ## IoT Village
 High level enumerate what we need to do to be successful
 - who has ownership over what pieces (5 rc cars and other devices)

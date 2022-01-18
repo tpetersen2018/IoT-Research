@@ -13,10 +13,11 @@ Focus on tool for task management
 ## Car/tank
 - Flag
 - Exploits
-```1. Telnet Interface
-   2. Replay Commands
-   3. Overflow
-   4. Privilege Escalation
-   5. Web Application
+```
+1. Telnet Interface
+2. Replay Commands
+3. Overflow
+4. Privilege Escalation
+5. Web Application
 ```
 - Scoreboard

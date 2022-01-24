@@ -5,7 +5,7 @@ High level enumerate what we need to do to be successful
 Focus on tool for task management
 - set up tasks
 - narrow down parts to divide between groups (management, sponsors, etc)
-- [ ] Marketing Flags (for the RC Car race)
+    - [ ] Marketing Flags (for the RC Car race)
 - set up timelines
 
 ## Research goal

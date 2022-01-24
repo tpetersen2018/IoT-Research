@@ -13,16 +13,17 @@ Focus on tool for task management
 ### Car/tank
 - Flag
 - Exploits
-    1. Telnet Interface
-    2. Replay Commands
-    3. Overflow
-    4. Privilege Escalation
-    5. Web Application
+    - [] Telnet Interface
+    - [] Replay Commands
+    - [] Overflow
+    - [] Privilege Escalation
+    - [] Web Application
 - Scoreboard
 
 ## Education Research
 - 3 devices (1 per person)
-- Collaborate with the seprate teams
+- Collaborate with the seprate teams to achive the goal
 
 ### Research goal
 - Find similar but new devices
+- Getting younger students involved in cyber

@@ -7,17 +7,18 @@ Focus on tool for task management
 - narrow down parts to divide between groups (management, sponsors, etc)
     - [ ] Marketing Flags (for the RC Car race)
     - [ ] Prizes?
-    - [ ] 
-- set up timelines
+    - [ ] Purchasing Parts to build the RC Cars
+- set up timelines (everything must be done by April 8th)
+
 
 ### Car/tank
 - Flag
 - Exploits
-    - [] Telnet Interface
-    - [] Replay Commands
-    - [] Overflow
-    - [] Privilege Escalation
-    - [] Web Application
+    - [ ] Telnet Interface
+    - [ ] Replay Commands
+    - [ ] Overflow
+    - [ ] Privilege Escalation
+    - [ ] Web Application
 - Scoreboard
 
 ## Education Research

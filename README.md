@@ -10,9 +10,9 @@ Focus on tool for task management
     - [ ] Purchasing Parts to build the RC Cars
 - set up timelines (everything must be done by April 8th)
 
-
 ### Car/tank
 - Flag
+    - [ ] Send idea to marketing
 - Exploits
     - [ ] Telnet Interface
     - [ ] Replay Commands
@@ -20,6 +20,9 @@ Focus on tool for task management
     - [ ] Privilege Escalation
     - [ ] Web Application
 - Scoreboard
+    - [ ] Website
+    - [ ] Create Challenges 
+
 
 ## Education Research
 - 3 devices (1 per person)

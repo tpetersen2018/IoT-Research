@@ -23,9 +23,12 @@ Focus on tool for task management
     - [ ] Website
     - [ ] Create Challenges 
 
-
 ## Education Research
-- 3 devices (1 per person)
+- Devices
+    - [ ] Raspberry Pi Car (Carl)
+    - [ ] Battleship gameboard thing (Isaiah)
+    - [ ] Russian Doll Locks (Collaboration)
+    - [ ] Raspberry Pi Train (Tiff) 
 - Collaborate with the seprate teams to achive the goal
 
 ### Research goal

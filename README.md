@@ -7,7 +7,7 @@ Focus on tool for task management
 - narrow down parts to divide between groups (management, sponsors, etc)
     - [ ] Marketing Flags (for the RC Car race)
     - [ ] Prizes?
-    - [ ] Purchasing Parts to build the RC Cars
+    - [X] Purchasing Parts to build the RC Cars
 - set up timelines (everything must be done by April 8th)
 
 ### Car/tank

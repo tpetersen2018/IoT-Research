@@ -7,7 +7,8 @@ Focus on tool for task management
 - narrow down parts to divide between groups (management, sponsors, etc)
     - [ ] Marketing Flags (for the RC Car race)
     - [ ] Prizes?
-    - [X] Purchasing Parts to build the RC Cars
+    - [X] Purchasing Parts to build the test RC Car
+    - [ ] Complete all 5 cars
 - set up timelines (everything must be done by April 8th)
 
 ### Car/tank
@@ -29,6 +30,7 @@ Focus on tool for task management
     - [ ] Battleship gameboard thing (Isaiah)
     - [ ] Russian Doll Locks (Collaboration)
     - [ ] Raspberry Pi Train (Tiff) 
+    - [ ] 5th device?
 - Collaborate with the seprate teams to achive the goal
 
 ### Research goal

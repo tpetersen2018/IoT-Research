@@ -1,0 +1,17 @@
+Project Ideas:
+1. Simple way to show reversing or something using a pi and rbg lights maybe?
+    - https://www.instructables.com/Using-a-RPi-to-Control-an-RGB-LED/
+2. Raspberry Pi Train
+3. RF Locks
+    - https://www.amazon.com/Wireless-Transmitter-Receiver-Universal-Controller/dp/B08CCVJWL9/ref=sr_1_6?keywords=rf%2Btransmitter%2Band%2Breceiver&qid=1643738658&sr=8-6&th=1
+    - https://www.amazon.com/ALMOCN-Transmitter-Frequency-Regenerative-Transceiver/dp/B092CCTVBC/ref=sr_1_18?keywords=rf+transmitter+and+receiver&qid=1643738778&sr=8-18
+4. Magnetic lock where challenges are finished which causes the pi to send a signal to unlock the box
+        - geared towards web app hosted challenges (3 - 5)
+            - permutations: brute force keypad?
+            - Guided RE
+            - Networks
+            - Passwords
+        - maybe access a shell to run unlock.py ? or a ./ executable
+5. Hacking a display?
+    - kids like the Ruku story
+6. 

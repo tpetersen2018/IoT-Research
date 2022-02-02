@@ -12,6 +12,7 @@ Project Ideas:
             - Networks
             - Passwords
         - maybe access a shell to run unlock.py ? or a ./ executable
+        - https://iotdesignpro.com/projects/iot-based-solenoid-door-lock-using-raspberry-pi-4
 5. Hacking a display?
     - kids like the Ruku story
 6. 

@@ -28,9 +28,9 @@ Focus on tool for task management
 - Devices
     - [ ] Raspberry Pi Car (Carl)
     - [ ] Battleship gameboard thing (Isaiah)
-    - [ ] Russian Doll Locks (Collaboration)
-    - [ ] Raspberry Pi Train (Tiff) 
-    - [ ] 5th device?
+    - [ ] Solenoid Lock (Tiff)
+    - [ ] Raspberry Pi Train
+    - [ ] Alexa
 - Collaborate with the seprate teams to achive the goal
 
 ### Research goal

@@ -59,20 +59,24 @@ def unlock1():
     content = request.json
     print(content)
     if content['pop'] == "9517":
-        print("HERE")
         #unlock_step1()###############################################################
         return "Success", 200
     
     return "Unsuccessful", 404
     
+
+    
+#-------------------------------------------------#
+# Objective 2 Coding
+#-------------------------------------------------#
+@app.route('/lock2/')
+def coding():
+    """Coding Lesson"""
+    return render_template('coding.html')
+
+
+
+
 if __name__=='__main__':
-    app.run(debug=True, port=80, host='0.0.0.0')
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    app.run(debug=True, port=8080, host='0.0.0.0')
+

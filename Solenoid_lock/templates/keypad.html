@@ -3,45 +3,52 @@
 </head>
 
 <style>
-    #btn1{width:100px; text-align:center; background-color:lightgrey;}
-    #btn2{width:100px; text-align:center; background-color:white;}
-    #btn3{width:100px; text-align:center; background-color:white;}
-    #btn4{width:100px; text-align:center; background-color:white;}
-    #btn5{width:100px; text-align:center; background-color:lightgrey;}
-    #btn6{width:100px; text-align:center; background-color:white;}
-    #btn7{width:100px; text-align:center; background-color:lightgrey;}
-    #btn8{width:100px; text-align:center; background-color:white;}
-    #btn9{width:100px; text-align:center; background-color:lightgrey;}
-    #btn0{width:100px; text-align:center; background-color:white;}
-    #btnDel{width:100px; text-align:left; background-color:white;}
-    #btnEnter{width:100px; text-align:left; background-color:white;}
+	#directions{font-size: 20px;}
+	#tbInput{width:630px; height:100px; text-align:center; background-color:white; font-size: 70px;}
+    #btn1{width:200px; height:80px; text-align:center; background-color:grey; font-size: 50px;}
+    #btn2{width:200px; height:80px; text-align:center; background-color:white; font-size: 50px;}
+    #btn3{width:200px; height:80px; text-align:center; background-color:white; font-size: 50px;}
+    #btn4{width:200px; height:80px; text-align:center; background-color:white; font-size: 50px;}
+    #btn5{width:200px; height:80px; text-align:center; background-color:grey; font-size: 50px;}
+    #btn6{width:200px; height:80px; text-align:center; background-color:white; font-size: 50px;}
+    #btn7{width:200px; height:80px; text-align:center; background-color:grey; font-size: 50px;}
+    #btn8{width:200px; height:80px; text-align:center; background-color:white; font-size: 50px;}
+    #btn9{width:200px; height:80px; text-align:center; background-color:grey; font-size: 50px;}
+    #btn0{width:200px; height:80px; text-align:center; background-color:white; font-size: 50px;}
+    #btnDel{width:200px; height:80px; text-align:center; background-color:white; font-size: 50px;}
+    #btnEnter{width:200px; height:80px; text-align:center; background-color:white; font-size: 50px;}
+    #keypad{width:800px; height:600px; background-color:lightblue; border-radius:100px; font-size: 50px;}
+    #response{font-size: 40px;}
 
 </style>
-<h2>
-    Directions: Bruteforce a 4 digit pin
+<h2 id="directions">
+    Directions: Bruteforce a 4 digit pin 
 </h2>
 
 <body>
     <center>
-        <input id="tbInput" type="text" maxlength="4"  readonly/>
-        <br /><br />
-        <input id="btn1" value="1" type="button" onclick="input(1);" />
-        <input id="btn2" value="2" type="button" onclick="input(2);" />
-        <input id="btn3" value="3" type="button" onclick="input(3);" />
-        <br />
-        <input id="btn4" value="4" type="button" onclick="input(4);" />
-        <input id="btn5" value="5" type="button" onclick="input(5);" />
-        <input id="btn6" value="6" type="button" onclick="input(6);" />
-        <br />
-        <input id="btn7" value="7" type="button" onclick="input(7);" />
-        <input id="btn8" value="8" type="button" onclick="input(8);" />
-        <input id="btn9" value="9" type="button" onclick="input(9);" />
-        <br />
-        <input id="btnDel" value="Delete" type="button" onclick="del();" />
-        <input id="btn0" value="0" type="button" onclick="input(0);" />
-        <input id="btnEnter" value="Enter" type="button" onclick="enter();" />
-        <br /><br />
-        <p id="response" />
+    	<p id="response"/> 
+    	<br />
+    	<div id="keypad" type="button" readonly>
+    		<br />
+        	<input id="tbInput" type="text" maxlength="4"  readonly/>
+        	<br /><br />
+        	<input id="btn1" value="1" type="button" onclick="input(1);" />
+        	<input id="btn2" value="2" type="button" onclick="input(2);" />
+        	<input id="btn3" value="3" type="button" onclick="input(3);" />
+        	<br />
+        	<input id="btn4" value="4" type="button" onclick="input(4);" />
+        	<input id="btn5" value="5" type="button" onclick="input(5);" />
+        	<input id="btn6" value="6" type="button" onclick="input(6);" />
+        	<br />
+        	<input id="btn7" value="7" type="button" onclick="input(7);" />
+        	<input id="btn8" value="8" type="button" onclick="input(8);" />
+        	<input id="btn9" value="9" type="button" onclick="input(9);" />
+        	<br />
+        	<input id="btnDel" value="Delete" type="button" onclick="del();" />
+        	<input id="btn0" value="0" type="button" onclick="input(0);" />
+        	<input id="btnEnter" value="Enter" type="button" onclick="enter();" />
+        <div />
     </center>
 </body>
 
@@ -80,6 +87,9 @@
                     document.getElementById("response").innerHTML = "Pin Incorrect. Try Again!";
                 }
             });
+        }
+        else{
+        	document.getElementById("response").innerHTML = "Pin is less than 4 digits! Try Again!"
         }
         del();
     }

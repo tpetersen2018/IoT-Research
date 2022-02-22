@@ -1,0 +1,77 @@
+<head>
+    <title>Move the car...</title>
+</head>
+<style>
+
+#button-forward{background-color: transparent; border: transparent}
+#button-left{background-color: transparent; margin-right:70px; border: transparent}
+#button-right{background-color: transparent; margin-left:70px; border: transparent}
+#button-backward{background-color: transparent; border: transparent}
+
+</style>
+<body style="background-image: url({{ url_for('static', filename='icons/racing_background.jpeg') }}); background-size: cover; height:600px; padding-top:80px; text-align: center;">
+        <center>
+            <button id="button-forward" onmousedown="move('forward')" onmouseup="move('stop')">
+                <img src="{{ url_for('static', filename='icons/fancy_right.png') }}" height="100" width="100" style="transform:rotate(-90deg);"/>
+            </button>
+            
+            <br /><br />
+            
+            <button id="button-left" onmousedown="move('left')" onmouseup="move('stop')">
+                <img src="{{ url_for('static', filename='icons/fancy_right.png') }}" height="100" width="100" style="transform:rotate(180deg);"/>
+            </button>
+            
+            <img src="{{ url_for('static', filename='icons/hot_wheels.png') }}" height="100" width="100" style="transform:rotate(0deg);"/>
+            
+            <button id="button-right" onmousedown="move('right')" onmouseup="move('stop')">
+                <img src="{{ url_for('static', filename='icons/fancy_right.png') }}" height="100" width="100" style="transform:rotate(0deg);"/>
+            </button>
+            
+            <br /><br />
+            
+            <button id="button-backward" onmousedown="move('backward')" onmouseup="move('stop')">
+                <img src="{{ url_for('static', filename='icons/fancy_right.png') }}" height="100" width="100" style="transform:rotate(90deg);"/>
+            </button>
+            
+            <br /><p id="reaction" />
+        </center>
+</body>
+
+<script>
+    function move(param) {
+        var data;
+        if (param.localeCompare('forward') == 0) {
+            data = {zoom: "forward"};
+            document.getElementById("reaction").innerHTML = "I'm moving forward!";
+            
+
+        } else if (param.localeCompare('left') == 0) {
+            data = {zoom: "left"};
+            document.getElementById("reaction").innerHTML = "I'm moving left!";
+        
+        } else if (param.localeCompare('right') == 0) {
+            data = {zoom: "right"};
+            document.getElementById("reaction").innerHTML = "I'm moving right!";
+        
+        } else if (param.localeCompare('backward') == 0) {
+            data = {zoom: "backward"};
+            document.getElementById("reaction").innerHTML = "I'm moving backward!";
+            
+        } else if (param.localeCompare('stop') == 0) {
+            data = {zoom: "stop"};
+            document.getElementById("reaction").innerHTML = "I'm no longer moving!";
+        
+        } else {
+            data = {zoom: "never gets here"};
+        }
+        
+        fetch("/movement/", {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(data)
+        }).then(res => {
+            console.log("Request complete! response:", res);
+        });
+        
+    }
+</script>

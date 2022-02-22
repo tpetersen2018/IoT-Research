@@ -1,0 +1,86 @@
+<head>
+    <title>Crack The Pin</title>
+</head>
+
+<style>
+    #btn1{width:100px; text-align:center; background-color:lightgrey;}
+    #btn2{width:100px; text-align:center; background-color:white;}
+    #btn3{width:100px; text-align:center; background-color:white;}
+    #btn4{width:100px; text-align:center; background-color:white;}
+    #btn5{width:100px; text-align:center; background-color:lightgrey;}
+    #btn6{width:100px; text-align:center; background-color:white;}
+    #btn7{width:100px; text-align:center; background-color:lightgrey;}
+    #btn8{width:100px; text-align:center; background-color:white;}
+    #btn9{width:100px; text-align:center; background-color:lightgrey;}
+    #btn0{width:100px; text-align:center; background-color:white;}
+    #btnDel{width:100px; text-align:left; background-color:white;}
+    #btnEnter{width:100px; text-align:left; background-color:white;}
+
+</style>
+<h2>
+    Directions: Bruteforce a 4 digit pin
+</h2>
+
+<body>
+    <center>
+        <input id="tbInput" type="text" maxlength="4"  readonly/>
+        <br /><br />
+        <input id="btn1" value="1" type="button" onclick="input(1);" />
+        <input id="btn2" value="2" type="button" onclick="input(2);" />
+        <input id="btn3" value="3" type="button" onclick="input(3);" />
+        <br />
+        <input id="btn4" value="4" type="button" onclick="input(4);" />
+        <input id="btn5" value="5" type="button" onclick="input(5);" />
+        <input id="btn6" value="6" type="button" onclick="input(6);" />
+        <br />
+        <input id="btn7" value="7" type="button" onclick="input(7);" />
+        <input id="btn8" value="8" type="button" onclick="input(8);" />
+        <input id="btn9" value="9" type="button" onclick="input(9);" />
+        <br />
+        <input id="btnDel" value="Delete" type="button" onclick="del();" />
+        <input id="btn0" value="0" type="button" onclick="input(0);" />
+        <input id="btnEnter" value="Enter" type="button" onclick="enter();" />
+        <br /><br />
+        <p id="response" />
+    </center>
+</body>
+
+<script>
+    function input(e) {
+        var tbInput = document.getElementById("tbInput");
+        
+        if (tbInput.value.length < 4){
+            tbInput.value = tbInput.value + e;
+        }
+    }
+
+    function del() {
+        var tbInput = document.getElementById("tbInput");
+        tbInput.value = "";
+    }
+    
+    function enter(){
+        var ans = document.getElementById("tbInput");
+        var post = "Fail";
+        
+        if (ans.value.length == 4){
+            data = {pop: ans.value};
+            
+            fetch("/unlock/", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify(data)
+            }).then(res => {
+                console.log("Request complete! response:", res);
+                post = res.status;
+                if (post == 200){
+                    document.getElementById("response").innerHTML = "Pin Correct. You have cracked the code. First lock opening now!";
+                }
+                else{
+                    document.getElementById("response").innerHTML = "Pin Incorrect. Try Again!";
+                }
+            });
+        }
+        del();
+    }
+</script>

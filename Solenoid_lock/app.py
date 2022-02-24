@@ -37,7 +37,7 @@ def unlock_step4():
 #-------------------------------------------------#
 # Home Page
 #-------------------------------------------------#
-@app.route('/')
+@app.route('/home')
 def home():
     """Hello World"""
     return render_template('home.html')
@@ -45,7 +45,7 @@ def home():
 #-------------------------------------------------#
 # Objective 1 Keypad
 #-------------------------------------------------#
-@app.route('/lock1/')
+@app.route('/lock1')
 def keypad():
     """Keypad Brute Forcing Lesson"""
     return render_template('keypad.html')
@@ -54,10 +54,10 @@ def keypad():
 #-------------------------------------------------#
 # Unlock Step 1
 #-------------------------------------------------#
-@app.route('/unlock/', methods=['POST'])
+@app.route('/unlock1/', methods=['POST'])
 def unlock1():
     content = request.json
-    print(content)
+    
     if content['pop'] == "9517":
         #unlock_step1()###############################################################
         return "Success", 200
@@ -69,11 +69,19 @@ def unlock1():
 #-------------------------------------------------#
 # Objective 2 Coding
 #-------------------------------------------------#
-@app.route('/lock2/')
+@app.route('/lock2')
 def coding():
     """Coding Lesson"""
     return render_template('coding.html')
 
+
+#-------------------------------------------------#
+# Objective 3 Coding
+#-------------------------------------------------#
+@app.route('/lock3')
+def task3():
+    """Coding Lesson"""
+    return render_template('coding.html')
 
 
 

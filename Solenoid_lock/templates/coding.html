@@ -1,11 +1,70 @@
 <head>
-    <title>Hackers Welcome</title>
+    <title>Intro to Code</title>
 </head>
 
-<body>  
-    <center>
-        <h1 style="color:red">
-            Hello
-        </h1>
-    </center>
+<style>
+	#directions{font-size: 20px;}
+	#container{width: 100%; height: 100%;}
+	#leftpane{width: 25%; height: 100%; float: left; background-color: purple; border-collapse: collapse;}
+	#middlepane{width: 50%; height: 100%; float: left; background-color: royalblue; border-collapse: collapse; font-size:20px;}
+	#rightpane{width: 25%; height: 100%; position: relative; float: right; background-color: yellow; border-collapse: collapse;}
+	#toppane{width: 100%; height: 100px; border-collapse: collapse; background-color: lightpink;}
+	#tbInput1{ font-size: 30px;}
+	#btnEnter{width: 200px; text-align:center; background-color:white; font-size: 50px;}
+</style>
+
+
+<body>
+	<div id="container">
+		<div id="toppane">
+			<h1 id="directions">Directions: </h1>
+			<body>
+				Add Directions here
+			</body>
+		</div>
+		
+		<div id="leftpane">
+			<h1>Description of Code and Hints for Questions:</h1>
+			<body>
+				Testing if this works
+			</body>
+		</div>
+		
+		<div id="middlepane">
+			<h1>Example Code:</h1>
+			<body>
+				<center>
+				 	<img src="../static/images/add_print.png" style="width:400px; height:400px;"> 
+				 </center>
+			</body>
+		</div>
+
+		<div id="rightpane">    
+			<h1>Student Answers:</h1>
+			<body>
+				CHECK AGAINST APP.PY EVENTUALLY
+				<input id="tbInput1" type="text" />
+				<center>
+					<input id="btnEnter" value="Enter" type="button" onclick="enter();" />
+				</ center>
+			</body>
+		</div>
+	</div>
 </body>
+
+<script>
+    var tbInput1 = document.getElementById("tbInput1");
+    
+    function del() {
+        tbInput1.value = "";
+    }
+    
+    function enter(){
+        var ans = document.getElementById("tbInput1");
+        var post = "Fail";
+        del();
+        
+    }
+    
+    del();
+</script>

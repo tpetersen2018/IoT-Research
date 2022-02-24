@@ -73,7 +73,7 @@
         if (ans.value.length == 4){
             data = {pop: ans.value};
             
-            fetch("/unlock/", {
+            fetch("/unlock1", {
             method: "POST",
             headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify(data)

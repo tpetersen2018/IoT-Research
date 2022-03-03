@@ -1,5 +1,5 @@
 #import RPi.GPIO as GPIO
-from flask import Flask, render_template, Response, request, url_for
+from flask import Flask, render_template, Response, request, url_for, make_response, redirect
 import sys
 import time
 
@@ -70,18 +70,54 @@ def unlock1():
 # Objective 2 Coding
 #-------------------------------------------------#
 @app.route('/lock2/')
-def coding():
+def task2():
     """Coding Lesson"""
     return render_template('coding.html')
 
 
 #-------------------------------------------------#
-# Objective 3 Coding
+# Objective 3 Cookie
 #-------------------------------------------------#
 @app.route('/lock3/')
-def task3():
-    """Coding Lesson"""
-    return render_template('coding.html')
+def task4():
+    """Cookie Lesson"""
+    return render_template('cookie.html')
+
+
+#-------------------------------------------------#
+# Setting Cookie
+#-------------------------------------------------#
+@app.route('/setcookie', methods = ['POST', 'GET'])
+def setcookie():
+    """Unlocked Deserves a Flag"""
+    if request.method == 'POST':
+        user = request.form['nm']
+        
+        response = make_response(render_template('readcookie.html'))
+      
+        try:
+        	name = request.cookies.get('userID')
+        	response.set_cookie('userID', name)
+        except:
+        	response.set_cookie('userID', user)
+        
+        return response
+
+
+#-------------------------------------------------#
+# Getting Cookie
+#-------------------------------------------------#
+@app.route('/getcookie')
+def getcookie():
+    """Unlocked Deserves a Flag"""
+    
+    name = request.cookies.get('userID')
+    
+    if name == 'admin':
+    	#unlock_step3()#############################
+        return render_template('unlock.html')
+    else:
+        return render_template('cookie2.html')
 
 
 

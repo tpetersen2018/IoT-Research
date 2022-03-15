@@ -5,7 +5,7 @@ High level enumerate what we need to do to be successful
 Focus on tool for task management
 - set up tasks
 - narrow down parts to divide between groups (management, sponsors, etc)
-    - [ ] Marketing Flags (for the RC Car race)
+    - [x] Marketing Flags (for the RC Car race)
     - [ ] Prizes?
     - [X] Purchasing Parts to build the test RC Car
     - [ ] Complete all 5 cars
@@ -13,7 +13,7 @@ Focus on tool for task management
 
 ### Car/tank
 - Flag
-    - [ ] Send idea to marketing
+    - [x] Send idea to marketing
 - Exploits
     - [ ] Telnet Interface
     - [ ] Replay Commands

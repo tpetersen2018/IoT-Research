@@ -31,7 +31,13 @@ def unlock_step3():
 def unlock_step4():
     global lock4
     GPIO.output((lock4), GPIO.HIGH)
-    
+
+def lock_box():
+    global lock1, lock2, lock3, lock4
+    GPIO.output((lock1), GPIO.LOW)
+    GPIO.output((lock2), GPIO.LOW)
+    GPIO.output((lock3), GPIO.LOW)
+    GPIO.output((lock4), GPIO.LOW)
 
 
 #-------------------------------------------------#
@@ -41,6 +47,15 @@ def unlock_step4():
 def home():
     """Hello World"""
     return render_template('home.html')
+
+#-------------------------------------------------#
+# Admin Page
+#-------------------------------------------------#
+@app.route('/admin')
+def admin():
+    """Admin usage"""
+    #lock_box() #######################################################################
+    return render_template('admin.html')
 
 #-------------------------------------------------#
 # Objective 1 Keypad
@@ -64,7 +79,6 @@ def unlock1():
     
     return "Unsuccessful", 404
     
-
     
 #-------------------------------------------------#
 # Objective 2 Coding
@@ -73,6 +87,20 @@ def unlock1():
 def task2():
     """Coding Lesson"""
     return render_template('coding.html')
+
+
+#-------------------------------------------------#
+# Unlock Step 2
+#-------------------------------------------------#
+@app.route('/unlock2', methods=['POST'])
+def unlock2():
+    content = request.json
+    
+    if content['pop'] == "9517":
+        #unlock_step2()###############################################################
+        return "Success", 200
+    
+    return "Unsuccessful", 404
 
 
 #-------------------------------------------------#
@@ -114,11 +142,10 @@ def getcookie():
     name = request.cookies.get('userID')
     
     if name == 'admin':
-    	#unlock_step3()#############################
+    	#unlock_step3()#############################################################
         return render_template('unlock.html')
     else:
         return render_template('cookie2.html')
-
 
 
 if __name__=='__main__':

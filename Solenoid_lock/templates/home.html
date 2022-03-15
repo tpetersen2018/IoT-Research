@@ -2,10 +2,55 @@
     <title>Hackers Welcome</title>
 </head>
 
-<body style="background-image: url({{ url_for('static', filename='images/hacker.jpg') }}); background-size: cover; height:600px; padding-top:80px; text-align: center;">  
-    <center>
-        <h1 style="color:red">
-            Hello
-        </h1>
-    </center>
+<style>
+	#container{width: 100%; height: 100%;}
+	#toppane{width: 100%; height: 100px; border-collapse: collapse;}
+	#leftpane{width: 25%; height: 100%; float: left; border-collapse: collapse;}
+	#middlepane{width: 50%; height: 100%; float: left; border-collapse: collapse; font-size:20px;}
+	#rightpane{width: 25%; height: 100%; position: relative; float: right;  border-collapse: collapse;}
+</style>
+
+
+<body>
+	<div id="container">
+		<div id="toppane">
+			<h1>Welcome! </h1>
+			<body>
+				ADD MESSAGE
+			</body>
+		</div>
+		
+		<div id="leftpane">
+			<h1>Lock Tasks:</h1>
+			<body>
+            	<a href="http://localhost:8080/lock1/" style="font-size: 30px;">Brute Forcing Lesson</a>
+            	<br /><br />
+            	<a href="http://localhost:8080/lock2/" style="font-size: 30px;">Programming Lesson</a>
+            	<br /><br />
+            	<a href="http://localhost:8080/lock3/" style="font-size: 30px;">Hidden Features Lesson</a>
+            	<br /><br />
+            	<a href="http://localhost:8080/lock4/" style="font-size: 30px;">Reverse Engineering Lesson</a>
+			</body>
+		</div>
+		
+		<div id="middlepane">
+			<body>
+				<center>
+				 	<img src="../static/images/hacker.jpg" style="width: 95%; height: 100%;"> 
+				 </center>
+			</body>
+		</div>
+
+		<div id="rightpane">    
+			<h1 style="color: red;">STATUS</h1>
+			<body>
+				<center>
+				    <img src="../static/images/locked.png" style="width: 100px; height: 100px;">
+				    <img src="../static/images/locked.png" style="width: 100px; height: 100px;">
+				    <img src="../static/images/locked.png" style="width: 100px; height: 100px;">
+				    <img src="../static/images/locked.png" style="width: 100px; height: 100px;">
+			    </center>
+			</body>
+		</div>
+	</div>
 </body>

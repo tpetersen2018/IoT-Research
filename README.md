@@ -9,7 +9,7 @@ Focus on tool for task management
     - [ ] Prizes?
     - [X] Purchasing Parts to build the test RC Car
     - [ ] Complete all 5 cars
-- set up timelines (everything must be done by April 8th)
+- set up timelines (everything must be done by April 7th)
 
 ### Car/tank
 - Flag

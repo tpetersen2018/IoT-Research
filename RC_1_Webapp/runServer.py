@@ -1,75 +1,30 @@
-import wiringpi as GPIO
 from flask import Flask, render_template, Response, request, url_for
 import sys
 from signal import *
 import time
+import my_i2c
 
 app = Flask(__name__, static_url_path="", static_folder="templates")
 app.config.from_pyfile('config.py')
 
-# Define the pins
-ENA = 22
-ENB = 30
-IN1 = 26
-IN3 = 21
+#ic2_bus = my_i2c.make_bus()
 
-# Termination signal handler - makes sure motor is turned off
-def clean(*args):
-    print('Cleaning up GPIO')
-    GPIO.digitalWrite(ENA, 0)
-    GPIO.digitalWrite(ENB, 0)
-    GPIO.digitalWrite(IN1, 0)
-    GPIO.digitalWrite(IN3, 0)
-    sys.exit(0)
-
-for sig in (SIGABRT, SIGILL, SIGINT, SIGSEGV, SIGTERM, SIGQUIT, SIGTSTP):
-    signal(sig, clean)
-
-
-def initialize_gpio():
-    # Call setup function
-    GPIO.wiringPiSetup()
-    # Initialize pins as outputs
-    print(ENA, ENB, IN1, IN3)
-    print('22, 30, 26, 21')
-    GPIO.pinMode(ENA, GPIO.OUTPUT)
-    GPIO.pinMode(ENB, GPIO.OUTPUT)
-    GPIO.pinMode(IN1, GPIO.OUTPUT)
-    GPIO.pinMode(IN3, GPIO.OUTPUT)
-
-# Turn on PWM
-def turn_on():
-    GPIO.digitalWrite(ENA, GPIO.HIGH)
-    GPIO.digitalWrite(ENB, GPIO.HIGH)
 
 # Begin defining directions
 def backward():
-    # Set gates
-    GPIO.digitalWrite(IN1, GPIO.LOW)
-    GPIO.digitalWrite(IN3, GPIO.HIGH)
-    # set enable signals
-    turn_on()
+    my_i2c.backward(ic2_bus)
 
 def forward():
-    GPIO.digitalWrite(IN1, GPIO.HIGH)
-    GPIO.digitalWrite(IN3, GPIO.LOW)
-    turn_on()
+    my_i2c.forward(ic2_bus)
 
 def left():
-    GPIO.digitalWrite(IN1, GPIO.HIGH)
-    GPIO.digitalWrite(IN3, GPIO.HIGH)
-    turn_on()
+    my_i2c.turn_left(ic2_bus)
 
 def right():
-    GPIO.digitalWrite(IN1, GPIO.LOW)
-    GPIO.digitalWrite(IN3, GPIO.LOW)
-    turn_on()
+    my_i2c.turn_right(ic2_bus)
 
 def stop():
-    # Turn off enable signals
-    GPIO.digitalWrite(ENA, GPIO.LOW)
-    GPIO.digitalWrite(ENB, GPIO.LOW)
-    
+    my_i2c.stop(ic2_bus)
 #-------------------------------------------------#
 # Objective 1 Replay
 #-------------------------------------------------#
@@ -82,27 +37,27 @@ def move_input():
     content = request.json
     
     if content['zoom'] == "forward":
-        forward()
+        #forward()
         print("User requested forward movement...")
         return "Forward movement request successful!"
         
     elif content['zoom'] == "left":
-        left()
+        #left()
         print("User requested left movement...")
         return "Left movement request successful!"
-        
+
     elif content['zoom'] == "right":
-        right()
+        #right()
         print("User requested right movement...")
         return "Right movement request successful!"
         
     elif content['zoom'] == "backward":
-        backward()
+        #backward()
         print("User requested backward movement...")
         return "Backward movement request successful!"
         
     elif content['zoom'] == "stop":
-        stop()
+        #stop()
         print("User requested to stop movement...")
         return "Stopping movement!"
     
@@ -118,10 +73,34 @@ def cookie():
     return render_template('cookie.html')
 
 #-------------------------------------------------#
-# Objective 3 ....
+# Objective 3
 #-------------------------------------------------#
-       
+
+DATABASE = 'database.db'
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+    return db
+
+def query_db(query, args=(), one=False):
+    cur = get_db().execute(query, args)
+    rv = cur.fetchall()
+    cur.close()
+    return (rv[0] if rv else None) if one else rv
+
+@app.route('/movement/', methods=['POST'])
+def sql_query():
+
+@app.route('/inject/')
+def inject():
+    return render_template('inject.html')
+
+#-------------------------------------------------#
+# Objective 4
+#-------------------------------------------------#
+    
 if __name__ == '__main__':
-    initialize_gpio()
     app.run(debug=True, port=80, host='0.0.0.0')
     clean()

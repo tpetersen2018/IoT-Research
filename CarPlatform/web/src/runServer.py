@@ -7,8 +7,7 @@ import my_i2c
 app = Flask(__name__, static_url_path="", static_folder="templates")
 app.config.from_pyfile('config.py')
 
-#ic2_bus = my_i2c.make_bus()
-
+ic2_bus = my_i2c.make_bus()
 
 # Begin defining directions
 def backward():

@@ -1,7 +1,10 @@
 <head>
     <title>Move the car...</title>
 </head>
+
 <style>
+#button-home{background-color: transparent; border: transparent; position: fixed; bottom: 20px; left: 20px}
+#button-next-task{background-color: black; border: transparent; position: fixed; bottom: 20px; right: 20px; height: 80px; width: 160px;}
 
 #button-forward{background-color: transparent; border: transparent}
 #button-left{background-color: transparent; margin-right:70px; border: transparent}
@@ -9,7 +12,12 @@
 #button-backward{background-color: transparent; border: transparent}
 
 </style>
+    
 <body style="background-image: url({{ url_for('static', filename='icons/racing_background.jpeg') }}); background-size: cover; height:600px; padding-top:80px; text-align: center;">
+        <script type="text/javascript">
+            // STORE TOKEN INTO LOCALSTORAGE
+            localStorage.setItem("authorized_to_drive", "False");
+        </script>
         <center>
             <button id="button-forward" onmousedown="move('forward')" onmouseup="move('stop')">
                 <img src="{{ url_for('static', filename='icons/fancy_right.png') }}" height="100" width="100" style="transform:rotate(-90deg);"/>
@@ -34,44 +42,49 @@
             </button>
             
             <br /><p id="reaction" />
+            
         </center>
 </body>
 
 <script>
     function move(param) {
-        var data;
-        if (param.localeCompare('forward') == 0) {
-            data = {zoom: "forward"};
-            document.getElementById("reaction").innerHTML = "I'm moving forward!";
-            
+        auth_token = localStorage.getItem("authorized_to_drive");
+        if (auth_token.localeCompare('True') == 0) {
+            var data;
+            if (param.localeCompare('forward') == 0) {
+                data = {zoom: "forward"};
+                document.getElementById("reaction").innerHTML = "I'm moving forward!";
 
-        } else if (param.localeCompare('left') == 0) {
-            data = {zoom: "left"};
-            document.getElementById("reaction").innerHTML = "I'm moving left!";
-        
-        } else if (param.localeCompare('right') == 0) {
-            data = {zoom: "right"};
-            document.getElementById("reaction").innerHTML = "I'm moving right!";
-        
-        } else if (param.localeCompare('backward') == 0) {
-            data = {zoom: "backward"};
-            document.getElementById("reaction").innerHTML = "I'm moving backward!";
+            } else if (param.localeCompare('left') == 0) {
+                data = {zoom: "left"};
+                document.getElementById("reaction").innerHTML = "I'm moving left!";
             
-        } else if (param.localeCompare('stop') == 0) {
-            data = {zoom: "stop"};
-            document.getElementById("reaction").innerHTML = "I'm no longer moving!";
-        
+            } else if (param.localeCompare('right') == 0) {
+                data = {zoom: "right"};
+                document.getElementById("reaction").innerHTML = "I'm moving right!";
+            
+            } else if (param.localeCompare('backward') == 0) {
+                data = {zoom: "backward"};
+                document.getElementById("reaction").innerHTML = "I'm moving backward!";
+                
+            } else if (param.localeCompare('stop') == 0) {
+                data = {zoom: "stop"};
+                document.getElementById("reaction").innerHTML = "I'm no longer moving!";
+            
+            } else {
+                data = {zoom: "never gets here"};
+            }
+            
+            fetch("/movement/", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify(data)
+            }).then(res => {
+                console.log("Request complete! response:", res);
+            });
         } else {
-            data = {zoom: "never gets here"};
+            document.getElementById("reaction").innerHTML = "You're not authorized to drive this vehicle...";
         }
-        
-        fetch("/movement/", {
-        method: "POST",
-        headers: {'Content-Type': 'application/json'}, 
-        body: JSON.stringify(data)
-        }).then(res => {
-            console.log("Request complete! response:", res);
-        });
         
     }
 </script>

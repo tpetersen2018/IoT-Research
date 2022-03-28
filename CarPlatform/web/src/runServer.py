@@ -7,7 +7,7 @@ import my_i2c
 app = Flask(__name__, static_url_path="", static_folder="templates")
 app.config.from_pyfile('config.py')
 
-ic2_bus = my_i2c.make_bus()
+#ic2_bus = my_i2c.make_bus()
 
 
 # Begin defining directions
@@ -25,8 +25,11 @@ def right():
 
 def stop():
     my_i2c.stop(ic2_bus)
+
+def broadcast(msg):
+    print("Sending message to scoring server")
 #-------------------------------------------------#
-# Objective 1 Replay
+# Objective 1 Storage
 #-------------------------------------------------#
 @app.route('/')
 def index():
@@ -39,43 +42,35 @@ def move_input():
     if content['zoom'] == "forward":
         forward()
         print("User requested forward movement...")
+        broadcast("Car is moving forward!")
         return "Forward movement request successful!"
         
     elif content['zoom'] == "left":
         left()
         print("User requested left movement...")
+        broadcast("Car is moving left!")
         return "Left movement request successful!"
         
     elif content['zoom'] == "right":
         right()
         print("User requested right movement...")
+        broadcast("Car is moving right!")
         return "Right movement request successful!"
         
     elif content['zoom'] == "backward":
         backward()
         print("User requested backward movement...")
+        broadcast("Car is moving backward!")
         return "Backward movement request successful!"
         
     elif content['zoom'] == "stop":
         stop()
         print("User requested to stop movement...")
+        broadcast("Car is stopping!")
         return "Stopping movement!"
     
     else:    
         return "Bad movement request!"
-
-#-------------------------------------------------#
-# Objective 2 Cookie
-#-------------------------------------------------#
-
-@app.route('/cookie/')
-def cookie():
-    return render_template('cookie.html')
-
-#-------------------------------------------------#
-# Objective 3 ....
-#-------------------------------------------------#
        
 if __name__ == '__main__':
     app.run(debug=True, port=80, host='0.0.0.0')
-    clean()

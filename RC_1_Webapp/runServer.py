@@ -76,7 +76,7 @@ def cookie():
 # Objective 3
 #-------------------------------------------------#
 
-DATABASE = 'database.db'
+DATABASE = 'statistics.db'
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -90,8 +90,21 @@ def query_db(query, args=(), one=False):
     cur.close()
     return (rv[0] if rv else None) if one else rv
 
-@app.route('/movement/', methods=['POST'])
+def create_movie_table(db_cur):
+    table_creator = """CREATE TABLE IF NOT EXISTS users (
+                        name VARCHAR(250),
+                        country TEXT,
+                        flight_names TEXT,
+                        flight_total INTEGER,
+                        flight_time TEXT
+                        ); """
+    db_cur.execute(table_creator)
+
+@app.route('/sql/', methods=['POST'])
 def sql_query():
+    content = request.json
+    search_results = query_db("SELECT name, FROM userdata WHERE Name = '%s';" % content['query'])
+    return search_results
 
 @app.route('/inject/')
 def inject():
@@ -103,4 +116,3 @@ def inject():
     
 if __name__ == '__main__':
     app.run(debug=True, port=80, host='0.0.0.0')
-    clean()

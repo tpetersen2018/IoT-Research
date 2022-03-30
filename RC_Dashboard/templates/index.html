@@ -1,0 +1,121 @@
+<!doctype html>
+
+<meta http-equiv="refresh" content="15" />
+<html lang="en">
+<head>
+  <title>Example</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+</head>
+
+<style>
+#grid {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+#grid > div {
+  background-color: black;
+  color: white;
+  font-size: 20px ;
+  padding: 10px;
+}
+</style>
+
+<img src="static/images/banner.png" width="100%">
+
+<div id="grid">
+
+<div>
+  <pre style="color:#ADD8E6;"> ------------------  Car 1 ------------------</pre>
+  {% for row in rows1 %}
+    {% if row.split(',')[0] == 'white' %}
+    <pre>{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'red' %}
+    <pre style="color:#ff355e;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'green' %}
+    <pre style="color:#AAFF00;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div>
+    <pre style="color:#ADD8E6;">------------------  Car 2 ------------------</pre>
+  {% for row in rows2 %}
+    {% if row.split(',')[0] == 'white' %}
+    <pre>{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'red' %}
+    <pre style="color:#ff355e;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'green' %}
+    <pre style="color:#AAFF00;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
+<div>
+    <pre style="color:#ADD8E6;">------------------  Car 3 ------------------</pre>
+  {% for row in rows3 %}
+    {% if row.split(',')[0] == 'white' %}
+    <pre>{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'red' %}
+    <pre style="color:#ff355e;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'green' %}
+    <pre style="color:#AAFF00;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div>
+    <pre style="color:#ADD8E6;">------------------  Car 4 ------------------</pre>
+  {% for row in rows4 %}
+    {% if row.split(',')[0] == 'white' %}
+    <pre>{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'red' %}
+    <pre style="color:#ff355e;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'green' %}
+    <pre style="color:#AAFF00;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div>
+    <pre style="color:#ADD8E6;">------------------  Car 5 ------------------</pre>
+  {% for row in rows5 %}
+    {% if row.split(',')[0] == 'white' %}
+    <pre>{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'red' %}
+    <pre style="color:#ff355e;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'green' %}
+    <pre style="color:#AAFF00;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div>
+    <pre style="color:#ADD8E6;">------------------  CTFD ------------------</pre>
+  {% for row in rows6 %}
+    {% if row.split(',')[0] == 'white' %}
+    <pre>{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'red' %}
+    <pre style="color:#ff355e;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+    {% if row.split(',')[0] == 'green' %}
+    <pre style="color:#AAFF00;">{{row.split(',')[1]}}</pre>
+    {% endif %}
+  {% endfor %}
+</div>
+
+</div>
+</html>

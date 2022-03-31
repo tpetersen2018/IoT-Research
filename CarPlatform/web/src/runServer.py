@@ -8,7 +8,10 @@ import socket
 app = Flask(__name__, static_url_path="", static_folder="templates")
 app.config.from_pyfile('config.py')
 
+# Make the I2C bus and drop the speed
 ic2_bus = my_i2c.make_bus()
+my_i2c.motor_slow(ic2_bus)
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP) 
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 sock.bind(("127.0.0.1",31337))

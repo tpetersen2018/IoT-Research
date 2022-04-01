@@ -1,11 +1,11 @@
 from scapy.all import *
 import time
 
-CAR1='aa:bb:cc:dd:ee:f1'
-CAR2='aa:bb:cc:dd:ee:f2'
-CAR3='aa:bb:cc:dd:ee:f3'
-CAR4='aa:bb:cc:dd:ee:f4'
-CAR5='aa:bb:cc:dd:ee:f5'
+CAR1='172.1.2.3'
+CAR2='172.1.2.4'
+CAR3='172.1.2.5'
+CAR4='172.1.2.6'
+CAR5='172.1.2.7'
 
 data = {}
 data[CAR1]="data/data1.csv"
@@ -19,7 +19,7 @@ def monitor_pkts(pkt):
       if pkt['UDP'].dport==2022:
          msg="green, %s" %pkt['Raw'].load
          print(msg)
-         f=open(data[CAR1],'a')
+         f=open(data[pkt[IP].src],'a')
          f.write(msg+"\n")
          f.close()
 

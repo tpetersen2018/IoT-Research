@@ -32,8 +32,8 @@ void car_server_connect() {
     printw("<<< Connecting to local car server...\n");
     car_server_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(31337);
-    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    server_addr.sin_port = htons(1337);
+    server_addr.sin_addr.s_addr = inet_addr("0.0.0.0");
     printw("<<< Connected to local car server.\n");
 }
 

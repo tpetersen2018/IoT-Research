@@ -10,5 +10,5 @@ COPY ./src/. /reverse
 RUN chmod 755 /reverse/start.sh
 
 # Expose port and run
-EXPOSE 1337
+EXPOSE 31337
 CMD ["./start.sh"]

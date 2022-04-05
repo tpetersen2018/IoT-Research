@@ -71,17 +71,12 @@ void driver_menu() {
 
 
 void authenticate() {
-    char access[8] = "DENIED";
+    // char access[8] = "DENIED";
     char contact[16];
     printf("We are sorry, but our car service is not available at this time.\n");
     printf("Please provide your contact info and we'll get back to you as soon as possible >>> ");
-    fgets(contact, 24, stdin);
-    if(strcmp(access, "GRANTED")==0) {
-        driver_menu();
-    }
-    else {
-        printf("<<< Thank you!\n");
-    }
+    fgets(contact, 32, stdin);
+    printf("<<< Thank you!\n");
     return;
 }
 

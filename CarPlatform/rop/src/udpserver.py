@@ -7,6 +7,7 @@ import my_i2c
 def broadcast(msg):
     b_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     b_sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    b_sock.setsockopt(socket.SOL_SOCKET, socket.SO_BINDTODEVICE, b'wlan0\0')
     server_address = ('255.255.255.255', 2022)
     msg = "[Broadcast] " + msg
     b_msg = bytes(msg, 'ascii')

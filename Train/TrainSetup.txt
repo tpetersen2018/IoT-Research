@@ -1,0 +1,17 @@
+Plans on how to setup the train and sensors before running PicoTrain.ino:
+
+STEP 1: Connect the IR Proximity Sensor to the train tracks:
+ - Reading Source: (https://www.instructables.com/Make-a-Low-Cost-Sensored-Track-in-Minutes/)
+ - For this train and railway set in particular, the first thing you should do is elevate the IR proximity sensors from the ground (e.g by placing them on small cardboard cut outs).
+ - Next, make sure the sensors are aligned with the train track switches.
+ - Then, you test and calibrate the sensors, follow the instructions from the reading source.
+ - When you know the sensors are working correctly and are at the right switches, you can permanently hot glue the sensors to the train track according to the instructions in the reading source.
+ 
+ STEP 2: Program the Raspberry Pico using the Arduino IDE:
+  - Reading Source: (https://www.instructables.com/Program-the-Raspberry-Pi-Pico-With-the-Arduino-IDE/)
+  - The steps for this is simple and used to ensure the pico is working correctly. Simply follow the instructions in the reading source.
+  
+ STEP 3: Setting up the materials needed before running PicoTrain.ino:
+  - Reading Source: (https://www.hackster.io/Tech_build/raspberry-pi-pico-controlled-point-to-point-model-railroad-80d961#code)
+  - Follow the instructions in the reading source to know the materials needed to setup the automated train track.
+  - After the setup is complete, run PicoTrain.ino to test if the train moves from one sensored track to the other around the trailway.

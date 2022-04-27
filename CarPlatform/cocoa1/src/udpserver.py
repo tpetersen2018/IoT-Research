@@ -1,3 +1,4 @@
+
 #import wiringpi as GPIO
 import socket, select, sys, time
 from signal import *
@@ -67,6 +68,30 @@ class WifiCar:
         broadcast("Car is moving right")
         self.stop()
 
+    def spin(self):
+        my_i2c.turn_right(self.i2c_bus)
+        time.sleep(10)
+        broadcast("Car is spinning")
+        self.stop()
+
+    def dance(self):
+        for i in range(4):
+            my_i2c.forward(self.i2c_bus)
+            time.sleep(1)
+            my_i2c.backward(self.i2c_bus) 
+            time.sleep(1)
+            if i == 0:
+                my_i2c.turn_right(self.i2c_bus)
+                time.sleep(0.55)
+            if i == 1:
+                my_i2c.turn_left(self.i2c_bus)
+                time.sleep(1.1)
+            if i == 2:
+                my_i2c.turn_right(self.i2c_bus)
+                time.sleep(0.55)
+        broadcast("Car is spinning")
+        self.stop()
+
     def stop(self):
         broadcast("Car is stopping")
         my_i2c.stop(self.i2c_bus)
@@ -123,6 +148,12 @@ def udp_socket_callback(sock, client, msg):
         car.right()
     elif msg == b't':
         car.toggle_lights()
+    elif msg == b'spin':
+        sock.sendto(b"Spin cycle...\n", client)
+        car.spin()
+    elif msg == b'dance':
+        sock.sendto(b"Jiggle jiggle\n", client)
+        car.dance()
     else:
         car.stop()
         if msg == b'q':
@@ -131,7 +162,7 @@ def udp_socket_callback(sock, client, msg):
             #global FLAG
             #FLAG = False
         else:
-            sock.sendto(b'Platform stopped\n', client)
+            sock.sendto(b'Invalid command.\n', client)
 
 car.initialize_udpserver()
 car.runserver(udp_socket_callback)

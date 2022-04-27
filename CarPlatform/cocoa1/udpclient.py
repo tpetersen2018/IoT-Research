@@ -1,18 +1,10 @@
+# RUN AS ROOT
 import keyboard, socket, time
 
 #server = ("127.0.0.1", 31337)
-server = ("0.0.0.0", 33047)
+server = ("0.0.0.0", 31337)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-def encrypt(b1, b2=b'\xb7'): # use xor for bytes
-    result = bytearray()
-    for b1, b2 in zip(b1, b2):
-        result.append(b1 ^ b2)
-    return bytes(result)
-
-#def encrypt(msg):
-#    ciphertext = b'\xb7' ^ msg
-#    return ciphertext
 
 print('Use arrow keys to move or press esc to terminate')
 while True:
@@ -20,31 +12,31 @@ while True:
 	if event.event_type == keyboard.KEY_DOWN and event.name == 'esc':
 		break
 	elif event.event_type == keyboard.KEY_DOWN and event.name == 'up':
-		msg = encrypt(b'u')
+		msg = b'u'
 		sock.sendto(msg, server)
 	elif event.event_type == keyboard.KEY_UP and event.name == 'up':
-		msg = encrypt(b's')
+		msg = b's'
 		sock.sendto(msg, server)
 	elif event.event_type == keyboard.KEY_DOWN and event.name == 'down':
-		msg = encrypt(b'd')
+		msg = b'd'
 		sock.sendto(msg, server)
 	elif event.event_type == keyboard.KEY_UP and event.name == 'down':
-		msg = encrypt(b'stop')
+		msg = b'stop'
 		sock.sendto(msg, server)
 	elif event.event_type == keyboard.KEY_DOWN and event.name == 'left':
-		msg = encrypt(b'l')
+		msg = b'l'
 		sock.sendto(msg, server)
 	elif event.event_type == keyboard.KEY_UP and event.name == 'left':
-		msg = encrypt(b'h')
+		msg = b'h'
 		sock.sendto(msg, server)
 	elif event.event_type == keyboard.KEY_DOWN and event.name == 'right':
-		msg = encrypt(b'r')
+		msg = b'r'
 		sock.sendto(msg, server)
 	elif event.event_type == keyboard.KEY_UP and event.name == 'right':
-		msg = encrypt(b'halt')
+		msg = b'halt'
 		sock.sendto(msg, server)
 	elif event.event_type == keyboard.KEY_DOWN and event.name == 'q':
-		msg = encrypt(b'q')
+		msg = b'q'
 		sock.sendto(msg, server)
 		break
 

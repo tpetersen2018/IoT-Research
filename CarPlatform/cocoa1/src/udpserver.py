@@ -1,6 +1,11 @@
+#import wiringpi as GPIO
 import socket, select, sys, time
 from signal import *
 import my_i2c
+#import keyboard
+
+authenticated_clients = set()
+
 
 def broadcast(msg):
     b_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -19,15 +24,6 @@ def clean(*args):
 for sig in (SIGABRT, SIGILL, SIGINT, SIGSEGV, SIGTERM, SIGQUIT, SIGTSTP):
     signal(sig, clean)
 
-# Decryption
-SECRET_KEY = open('SECRET_KEY', 'rb').read()
-
-def decrypt(b1, b2=SECRET_KEY): # use xor for bytes
-    result = bytearray()
-    for b1, b2 in zip(b1, b2):
-        result.append(b1 ^ b2)
-    return bytes(result)
-
 
 class WifiCar:
     # Constructor - Need a tuple with 4 GPIO pin numbers: (ENA, ENB, IN1, IN3)
@@ -39,7 +35,7 @@ class WifiCar:
         # Testing lowering the motor speed
         my_i2c.motor_slow(self.i2c_bus)
 
-    def initialize_udpserver(self, port=33047):
+    def initialize_udpserver(self, port=31337):
         self.serversocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.serversocket.bind(('0.0.0.0', port))
         #self.serversocket.bind(('127.0.0.1', port))
@@ -101,21 +97,28 @@ class WifiCar:
 # create car object
 car = WifiCar()
 FLAG = True
+
 # define our socket callback
-def udp_socket_callback(sock, client, ciphertext):
-    print(f"Received command {ciphertext} from {client}")
-    msg = decrypt(ciphertext)
-    #print(msg, len(msg))
-    if msg == b'u':
+def udp_socket_callback(sock, client, msg):
+    print(f"Received command {msg} from {client}")
+    if client not in authenticated_clients:
+        if msg == b'admin':
+            authenticated_clients.add(client)
+            sock.sendto(b"Authentication Successful\n", client)
+            return
+        else:
+            sock.sendto(b"Please send the password first\n", client)
+            return
+    if msg == b'f' or msg == b'w':
         car.forward()
         sock.sendto(b'Going forwards\n', client)
-    elif msg == b'd':
+    elif msg == b'b' or msg == b's':
         sock.sendto(b"Going backwards\n", client)
         car.backward()
-    elif msg == b'l':
+    elif msg == b'l' or msg == b'a':
         sock.sendto(b"Turning left\n", client)
         car.left()
-    elif msg == b'r':
+    elif msg == b'r' or msg == b'd':
         sock.sendto(b"Turning right\n", client)
         car.right()
     elif msg == b't':
@@ -123,7 +126,8 @@ def udp_socket_callback(sock, client, ciphertext):
     else:
         car.stop()
         if msg == b'q':
-            sock.sendto(b'Shutting down Command (obsolete)\n', client)
+            sock.sendto(b"You've logged out.\n", client)
+            authenticated_clients.discard(client)
             #global FLAG
             #FLAG = False
         else:

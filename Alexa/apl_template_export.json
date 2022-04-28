@@ -1,0 +1,338 @@
+{
+    "document": {
+        "type": "APL",
+        "version": "1.8",
+        "license": "Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.\nSPDX-License-Identifier: LicenseRef-.amazon.com.-AmznSL-1.0\nLicensed under the Amazon Software License  http://aws.amazon.com/asl/",
+        "theme": "light",
+        "import": [
+            {
+                "name": "alexa-layouts",
+                "version": "1.5.0"
+            }
+        ],
+        "mainTemplate": {
+            "parameters": [
+                "payload"
+            ],
+            "items": [
+                {
+                    "type": "AlexaGridList",
+                    "id": "plantList2",
+                    "headerTitle": "${payload.gridListData.title}",
+                    "headerBackButton": true,
+                    "headerAttributionImage": "${payload.gridListData.logoUrl}",
+                    "backgroundImageSource": "${payload.gridListData.backgroundImage.sources[0].url}",
+                    "backgroundBlur": false,
+                    "backgroundColorOverlay": false,
+                    "imageAspectRatio": "standard_landscape",
+                    "imageScale": "best-fill",
+                    "listItems": "${payload.gridListData.listItems}",
+                    "listItemHorizontalCount": 7,
+                    "listItemHeight": 100
+                }
+            ]
+        }
+    },
+    "datasources": {
+        "gridListData": {
+            "type": "object",
+            "objectId": "gridListSample",
+            "backgroundImage": {
+                "contentDescription": null,
+                "smallSourceUrl": null,
+                "largeSourceUrl": null,
+                "sources": [
+                    {
+                        "url": "https://basicletters.s3.amazonaws.com/game_background.png",
+                        "size": "small",
+                        "widthPixels": 0,
+                        "heightPixels": 0
+                    },
+                    {
+                        "url": "https://basicletters.s3.amazonaws.com/game_background.png",
+                        "size": "large",
+                        "widthPixels": 0,
+                        "heightPixels": 0
+                    }
+                ]
+            },
+            "title": "Letters Select",
+            "listItems": [
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Basic_A.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ],
+                    "onPress": [
+                        {
+                            "primaryText": "",
+                            "imageSource": "https://basicletters.s3.amazonaws.com/Bad_A.png",
+                            "primaryAction": [
+                                {
+                                    "type": "SetValue",
+                                    "componentId": "plantList2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_B.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_C.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_D.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_E.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_F.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_G.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_H.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_I.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_J.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_K.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_L.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_M.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_N.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_O.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_P.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_Q.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_R.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_S.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_T.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_U.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_V.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_W.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_X.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_Y.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                },
+                {
+                    "primaryText": "",
+                    "imageSource": "https://basicletters.s3.amazonaws.com/Bad_Z.png",
+                    "primaryAction": [
+                        {
+                            "type": "SetValue",
+                            "componentId": "plantList2"
+                        }
+                    ]
+                }
+            ],
+            "logoUrl": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v3/logo/logo-modern-botanical-white.png"
+        }
+    },
+    "sources": {}
+}

@@ -1,0 +1,291 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "cipher test",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "quit"
+          ]
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "StartGameIntentHandler",
+          "slots": [],
+          "samples": [
+            "start cipher game",
+            "Start the Game",
+            "Start Game"
+          ]
+        },
+        {
+          "name": "GameRulesIntentHandler",
+          "slots": [],
+          "samples": [
+            "cipher game rules",
+            "tell me the Game Rules",
+            "play Game Rules",
+            "give me the Game Rules",
+            "Game rules"
+          ]
+        },
+        {
+          "name": "BeginnerIntentHandler",
+          "slots": [],
+          "samples": [
+            "return to beginner",
+            "level one",
+            "play beginner",
+            "start beginner "
+          ]
+        },
+        {
+          "name": "LevelTwoIntentHandler",
+          "slots": [],
+          "samples": [
+            "cipher two",
+            "play level two",
+            "get level two",
+            "start level two",
+            "level two"
+          ]
+        },
+        {
+          "name": "LevelThreeIntentHandler",
+          "slots": [],
+          "samples": [
+            "cipher three",
+            "get level three",
+            "play level three",
+            "start level three",
+            "level three"
+          ]
+        },
+        {
+          "name": "HintOneIntentHandler",
+          "slots": [],
+          "samples": [
+            "hint please",
+            "play hint one",
+            "hint one",
+            "get hint one"
+          ]
+        },
+        {
+          "name": "GetLetterIntentHandler",
+          "slots": [
+            {
+              "name": "spokenletter",
+              "type": "letter"
+            }
+          ],
+          "samples": [
+            "letter {spokenletter}",
+            "{spokenletter}",
+            "The letter is {spokenletter}"
+          ]
+        },
+        {
+          "name": "CheckLetterIntentHandler",
+          "slots": [],
+          "samples": [
+            "I have a letter"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "id": "z",
+              "name": {
+                "value": "z"
+              }
+            },
+            {
+              "id": "y",
+              "name": {
+                "value": "y"
+              }
+            },
+            {
+              "id": "x",
+              "name": {
+                "value": "x"
+              }
+            },
+            {
+              "id": "w",
+              "name": {
+                "value": "w"
+              }
+            },
+            {
+              "id": "v",
+              "name": {
+                "value": "v"
+              }
+            },
+            {
+              "id": "u",
+              "name": {
+                "value": "u"
+              }
+            },
+            {
+              "id": "t",
+              "name": {
+                "value": "t"
+              }
+            },
+            {
+              "id": "s",
+              "name": {
+                "value": "s"
+              }
+            },
+            {
+              "id": "r",
+              "name": {
+                "value": "r"
+              }
+            },
+            {
+              "id": "q",
+              "name": {
+                "value": "q"
+              }
+            },
+            {
+              "id": "p",
+              "name": {
+                "value": "p"
+              }
+            },
+            {
+              "id": "o",
+              "name": {
+                "value": "o"
+              }
+            },
+            {
+              "id": "n",
+              "name": {
+                "value": "n"
+              }
+            },
+            {
+              "id": "m",
+              "name": {
+                "value": "m"
+              }
+            },
+            {
+              "id": "l",
+              "name": {
+                "value": "l"
+              }
+            },
+            {
+              "id": "k",
+              "name": {
+                "value": "k"
+              }
+            },
+            {
+              "id": "j",
+              "name": {
+                "value": "j"
+              }
+            },
+            {
+              "id": "i",
+              "name": {
+                "value": "i"
+              }
+            },
+            {
+              "id": "h",
+              "name": {
+                "value": "h"
+              }
+            },
+            {
+              "id": "g",
+              "name": {
+                "value": "g"
+              }
+            },
+            {
+              "id": "f",
+              "name": {
+                "value": "f"
+              }
+            },
+            {
+              "id": "e",
+              "name": {
+                "value": "e"
+              }
+            },
+            {
+              "id": "d",
+              "name": {
+                "value": "d"
+              }
+            },
+            {
+              "id": "c",
+              "name": {
+                "value": "c"
+              }
+            },
+            {
+              "id": "b",
+              "name": {
+                "value": "b"
+              }
+            },
+            {
+              "id": "a",
+              "name": {
+                "value": "a"
+              }
+            }
+          ],
+          "name": "letter"
+        }
+      ]
+    }
+  },
+  "version": "18"
+}

@@ -1,18 +1,14 @@
 import keyboard, socket, time
 
 #server = ("127.0.0.1", 31337)
-server = ("0.0.0.0", 33047)
+server = ("10.3.141.1", 33047)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-def encrypt(b1, b2=b'\xb7'): # use xor for bytes
+def encrypt(b1, b2=b'\x00'): # Replace \x00 with the proper key
     result = bytearray()
     for b1, b2 in zip(b1, b2):
         result.append(b1 ^ b2)
     return bytes(result)
-
-#def encrypt(msg):
-#    ciphertext = b'\xb7' ^ msg
-#    return ciphertext
 
 print('Use arrow keys to move or press esc to terminate')
 while True:

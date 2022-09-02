@@ -1,0 +1,5 @@
+Help us get control of the car!  It looks like it's using XOR encryption, and will only accept our input if it's encrypted using the right key.  We have a script that is *mostly* finished, except we don't know what the key is.
+
+We were able to intercept a message that we know was ecrypted using the same key (rcctf.enc).  According to our intel, the message should say "RCCTF" once you've decrypted it.  Find the key and modify 'cryptoclient.py' accordingly.
+
+Note: HEX bytes can be written like this: '\xAA'
